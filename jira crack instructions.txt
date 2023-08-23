@@ -1,0 +1,55 @@
+docker run -d -it -p 8080:8080 --name jiracont ubuntu:latest
+
+docker exec -it <conatinerName> bin/bash
+apt-get update -y
+apt-get upgrade -y
+apt-get install wget unzip fontconfig plocate -y
+wget https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-software-9.10.1-x64.bin
+
+ls -al
+
+chmod a+x atlassian-jira-software-9.10.1-x64.bin
+
+./atlassian-jira-software-9.10.1-x64.bin
+
+Dont start the jira
+
+rm -f atlassian-jira-software-9.10.1-x64.bin
+
+wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-8.0.18.zip
+
+unzip mysql-connector-java-8.0.18.zip
+
+cp mysql-connector-java-8.0.18/mysql-connector-java-8.0.18.jar /opt/atlassian/jira/lib
+
+cd /opt
+mkdir atlassian-agent
+cd atlassian-agent
+cp ~/Downloads/atlassian-agent.jar 6a2ced902084:/opt/atlassian-agent/atlassian-agent.jar
+unzip atlassian-agent.jar
+
+
+if give some error
+rm -rf META-INF/maven/javax.activation
+unzip atlassian-agent.jar
+
+
+cd /opt/atlassian/jira/bin
+
+apt install vim
+vim setenv.sh
+
+
+add export line in last
+export JAVA_OPTS="$JAVA_OPTS -javaagent:/opt/atlassian-agent/atlassian-agent.jar"
+apt update
+apt install default-jre
+
+java -jar /opt/atlassian-agent/atlassian-agent.jar -m ankit123@gmail.com -o Ankit123 -p jira -s BOUT-MSPD-VUPT-3PYD
+
+/etc/init.d/jira stop
+/etc/init.d/jira start
+
+
+
+
