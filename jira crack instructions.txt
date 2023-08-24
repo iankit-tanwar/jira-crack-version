@@ -20,7 +20,7 @@ wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-8.0.18
 
 unzip mysql-connector-java-8.0.18.zip
 
-cp mysql-connector-java-8.0.18/mysql-connector-java-8.0.18.jar /opt/atlassian/jira/lib
+docker cp mysql-connector-java-8.0.18/mysql-connector-java-8.0.18.jar /opt/atlassian/jira/lib
 
 cd /opt
 mkdir atlassian-agent
